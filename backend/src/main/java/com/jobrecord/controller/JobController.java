@@ -76,8 +76,8 @@ public class JobController {
 
     @GetMapping("/search")
     public List<Job> searchJobs(@RequestParam(required = false) String companyName,
-                               @RequestParam(required = false) String position,
-                               @RequestParam(required = false) JobStatus status) {
+            @RequestParam(required = false) String position,
+            @RequestParam(required = false) JobStatus status) {
         return jobService.searchJobs(companyName, position, status);
     }
 }

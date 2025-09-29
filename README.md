@@ -15,16 +15,19 @@ A comprehensive job application tracking system to help you manage your job sear
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - MongoDB object modeling
+- **Java 17** - Programming language
+- **Spring Boot 3.1.5** - Application framework
+- **Spring Security** - Authentication and authorization
+- **Spring Data JPA** - Data persistence
+- **JWT** - Token-based authentication
+- **H2 Database** - In-memory database (development)
+- **Maven** - Build tool
 
 ### Frontend
-- **React** - UI library
-- **React Router** - Client-side routing
-- **Axios** - HTTP client
-- **CSS3** - Styling
+- **Angular 20** - Frontend framework
+- **TypeScript** - Programming language
+- **RxJS** - Reactive programming
+- **Angular CLI** - Development tools
 
 ## 📋 Application Status Types
 
@@ -37,38 +40,84 @@ A comprehensive job application tracking system to help you manage your job sear
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local installation or MongoDB Atlas)
+- Java 17 or higher
+- Node.js 18 or higher
+- Maven 3.6 or higher
 - Git
 
-### Installation
+### Quick Start (Both services with hot reload)
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/jobrecord.git
+   git clone https://github.com/itsmesuraj20/jobrecord.git
    cd jobrecord
    ```
 
-2. **Setup Backend**
+2. **Start both backend and frontend**
    ```bash
-   cd backend
-   npm install
+   ./start-dev.sh
    ```
 
-3. **Setup Frontend**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+   This will start:
+   - Backend on http://localhost:8080 (with hot reload)
+   - Frontend on http://localhost:4200 (with hot reload)
+   - H2 Console on http://localhost:8080/h2-console
+
+### Individual Service Setup
+
+#### Backend Only
+```bash
+./start-backend.sh
+```
+
+#### Frontend Only
+```bash
+./start-frontend.sh
+```
+
+### Manual Setup
+
+#### Backend Setup
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
+
+#### Frontend Setup
+```bash
+cd frontend
+npm install
+npm start
+```
+
+## 🔧 Development
+
+### Hot Reload
+Both backend and frontend support hot reload:
+
+- **Backend**: Uses Spring Boot DevTools - automatically restarts when Java files change
+- **Frontend**: Uses Angular CLI dev server - automatically recompiles and refreshes when TypeScript/HTML/CSS files change
+
+### Database Access
+- **H2 Console**: http://localhost:8080/h2-console
+  - JDBC URL: `jdbc:h2:mem:testdb`
+  - Username: `sa`
+  - Password: `password`
 
 ## 📡 API Endpoints
+
+### Authentication
+- `POST /api/auth/signup` - Register new user
+- `POST /api/auth/signin` - Login user
 
 ### Jobs
 - `GET /api/jobs` - Get all job applications
 - `POST /api/jobs` - Create new job application
-- `GET /api/jobs/:id` - Get specific job application
-- `PUT /api/jobs/:id` - Update job application
-- `DELETE /api/jobs/:id` - Delete job application
+- `GET /api/jobs/{id}` - Get specific job application
+- `PUT /api/jobs/{id}` - Update job application
+- `DELETE /api/jobs/{id}` - Delete job application
+- `GET /api/jobs/search` - Search jobs with filters
 
 ## 🎯 Future Enhancements
 
@@ -80,6 +129,7 @@ A comprehensive job application tracking system to help you manage your job sear
 - [ ] Mobile application
 - [ ] Export data to PDF/Excel
 - [ ] Advanced analytics and insights
+- [ ] Real database integration (PostgreSQL/MySQL)
 
 ## 🤝 Contributing
 
@@ -95,9 +145,8 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+**Suraj**
+- GitHub: [@itsmesuraj20](https://github.com/itsmesuraj20)
 
 ---
 

@@ -16,23 +16,23 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 public class SimpleSecurityConfig {
-    
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
-            .headers(headers -> headers.frameOptions().disable());
-        
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
+                .headers(headers -> headers.frameOptions().disable());
+
         return http.build();
     }
-    
+
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
